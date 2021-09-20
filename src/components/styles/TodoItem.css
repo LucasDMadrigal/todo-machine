@@ -1,0 +1,21 @@
+.todo-item--container{
+    display: flex;
+align-items: center;
+}
+
+.icon{
+font-size: 30px;
+}
+
+.desabled{
+    display: none;
+}
+
+.icon-times{
+    color: red;
+}
+
+.icon-check{
+    color: green;
+}
+
