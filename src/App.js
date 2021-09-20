@@ -8,6 +8,7 @@ import { TodoCounter } from './components/TodoCounter'
 import { TodoList } from './components/TodoList'
 import { TodoItem } from './components/TodoItem'
 import { ButtonCreateTodo } from './components/ButtonCreateTodo'
+import { TodoSearch } from './components/TodoSearch'
 import './App.css';
 
 const todos = [
@@ -25,6 +26,7 @@ function App() {
   return (
     <React.Fragment >
       <TodoCounter />
+      <TodoSearch />
       <TodoList> 
         { todos.map( item => (
           <TodoItem
