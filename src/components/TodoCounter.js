@@ -3,9 +3,10 @@ import './styles/TodoCounter.css'
 
 function TodoCounter() {
     return (
-        <div>
+        <div className="todo-counter--container">
             <h1>
                 Contador
+                <h6>completaste 2 de 3 tareas</h6>
             </h1>
         </div>
     )

@@ -1,4 +1,11 @@
-h2{
-    font-size: 24px;
+.todo-counter--container{
     text-align: center;
+}
+
+.todo-counter--container h2{
+    font-size: 24px;
+}
+
+.todo-counter--container h6{
+    font-size: 18px;
 }

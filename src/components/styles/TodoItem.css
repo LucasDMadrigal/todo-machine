@@ -1,14 +1,18 @@
 .todo-item--container{
     display: flex;
-align-items: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .icon{
-font-size: 30px;
+    font-size: 30px;
+    margin: 2px;
 }
 
-.desabled{
-    display: none;
+.todo_item-icon--container{
+    display: flex;
+    margin-left: 10px;
 }
 
 .icon-times{
@@ -19,3 +23,6 @@ font-size: 30px;
     color: green;
 }
 
+.desabled{
+    display: none;
+}

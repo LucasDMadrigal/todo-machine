@@ -1,0 +1,19 @@
+button{
+    border: tomato;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: tomato;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 20px;
+    left: 100vw;
+    transform: translate(75%, 75%);
+}
+
+.icon-plus{
+    color: wheat;
+}
