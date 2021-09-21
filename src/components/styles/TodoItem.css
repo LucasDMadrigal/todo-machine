@@ -23,6 +23,10 @@
     color: green;
 }
 
+.text-desabled{
+color: rgb(192, 169, 169);
+}
+
 .desabled{
     display: none;
 }

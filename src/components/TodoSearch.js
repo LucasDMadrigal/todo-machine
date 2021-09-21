@@ -1,10 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './styles/TodoSearch.css'
 
-export default function TodoSearch() {
+export default function TodoSearch({searchValue, setSearchValue}) {
     
-    const [searchValue, setSearchValue] = useState('')
-
     const handleChange = (e) => {
         console.log(e.target.value);
 
