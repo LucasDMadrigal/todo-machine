@@ -1,18 +1,20 @@
 import React from 'react'
+import { TodoContext } from '../TodoContext/index'
 import './styles/TodoSearch.css'
 
-export default function TodoSearch({searchValue, setSearchValue}) {
+function TodoSearch() {
     
-    const handleChange = (e) => {
-        console.log(e.target.value);
+    const {searchValue, setSearchValue} = React.useContext(TodoContext);
 
-        setSearchValue(e.target.value)
+    const onSearchValueChange = (event) => {
+        console.log(event.target.value);
+        setSearchValue(event.target.value);
     }
     return (
         <input
         value={searchValue}
         placeholder="Busqueda"
-        onChange={handleChange}
+        onChange={onSearchValueChange}
         />
     )
 }
