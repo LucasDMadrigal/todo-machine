@@ -1,15 +1,15 @@
-.toggle-modal--button{
-    border:cadetblue;
+.delete--button{
+    border:tomato;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:cadetblue;
+    background-color: tomato;
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     /* transform: rotate(-45deg); */
     transition: all 0.5s;
     z-index: 1;
@@ -20,6 +20,7 @@
     transition: all 0.5s;
 }
 
-.icon-plus{
-    color: wheat;
+.icon-trash{
+    color: white;
+    font-size: 22px;
 }

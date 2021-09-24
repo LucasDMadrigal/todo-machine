@@ -3,24 +3,21 @@ import { TodoCounter } from '../TodoCounter'
 import { TodoList } from '../TodoList'
 import { TodoItem } from '../TodoItem'
 import { ButtonCreateTodo } from '../ButtonCreateTodo'
+import { ButtonDeleteList } from '../ButtonDeleteList'
 import { TodoSearch } from '../TodoSearch'
 
+import Form from '../TodoForm'
+
 import { TodoContext } from "../../TodoContext/index";
-import { TodoProvider } from "../../TodoContext/index";
+
+import { Modal } from '../../Modal/Modal'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckCircle, faCheck, faTimesCircle, faPlus} from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faCheck, faTimesCircle, faPlus, faTrash} from '@fortawesome/free-solid-svg-icons'
 import '../App.css'
 
-// const defaultTodos = [
-//   { text: 'Cortar cebolla', completed: false },
-//   { text: 'Tomar el cursso de intro a React', completed: false },
-//   { text: 'Llorar con la llorona', completed: false },
-//   { text: 'LALALALAA', completed: false },
-// ];
-
-library.add(fab, faCheckCircle, faCheck, faTimesCircle, faPlus)
+library.add(fab, faCheckCircle, faCheck, faTimesCircle, faPlus, faTrash)
 
 function AppUI() {
 
@@ -30,6 +27,9 @@ function AppUI() {
     searchedTodos,
     completeTodo,
     deleteTodo,
+    deleteList,
+    openModal,
+    setOpenModal
 } = React.useContext(TodoContext)
   
   return (
@@ -37,8 +37,7 @@ function AppUI() {
         <TodoCounter/>
         <TodoSearch/>
 
-        <TodoContext.Consumer>
-        {() => (<TodoList>
+       <TodoList>
             {error && <p> Estamos cagando...</p>}
             {loading && <p> Estamos carrrrrgando...</p>}
             {(!loading && !searchedTodos.length) && <p> No hay ningun TODO. Crea uno nuevo!</p>}
@@ -51,10 +50,19 @@ function AppUI() {
               onComplete = {() => completeTodo(item.text)}
               onDelete = {() => deleteTodo(item.text)} />
               ))}
-        <ButtonCreateTodo />
           </TodoList>
-        )}
-        </TodoContext.Consumer>
+        <ButtonCreateTodo
+        openModal={openModal}
+        onClick={setOpenModal}
+        />
+        <ButtonDeleteList
+        // onClick={}
+        />
+        { !!openModal &&
+          (<Modal>
+          <Form />
+        </Modal>)
+        }
     </React.Fragment>
   );
 }
