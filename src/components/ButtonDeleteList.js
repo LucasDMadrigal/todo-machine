@@ -1,23 +1,27 @@
 import React from 'react'
-import { TodoContext } from '../TodoContext'
+
 import './styles/ButtonDeleteList.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function ButtonDeleteList(props) {
 
-    const {
-        deleteList
-    } = React.useContext(TodoContext)
+    
 
     const handleClick = () => {
-        deleteList()
-        console.log('que onda?');
+
+        props.setOpenModal(prevState => !prevState)
+        props.onSetNewTodo(false)
+        props.onSetDeleteTodos(true)
+    }
+
+    const setDeleteTodos = () => {
     }
     return (
         <button
         className="delete--button"
         onClick={handleClick}
+        setDeleteTodos={setDeleteTodos}
         title="Delete all Todo"
         >
             <FontAwesomeIcon className= "icon icon-trash" icon="trash" /> 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { TodoContext } from '../TodoContext'
 import './styles/TodoForm.css'
-function TodoForm() {
+function NewTodoForm() {
     const [form, setForm] = React.useState('')
 
     const {
@@ -53,4 +53,4 @@ function TodoForm() {
     )
 }
 
-export default TodoForm
+export default NewTodoForm

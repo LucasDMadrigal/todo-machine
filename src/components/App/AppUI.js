@@ -6,7 +6,8 @@ import { ButtonCreateTodo } from '../ButtonCreateTodo'
 import { ButtonDeleteList } from '../ButtonDeleteList'
 import { TodoSearch } from '../TodoSearch'
 
-import Form from '../TodoForm'
+import NewTodoForm from '../NewTodoForm'
+import DeleteAll from '../DeleteAll'
 
 import { TodoContext } from "../../TodoContext/index";
 
@@ -28,7 +29,11 @@ function AppUI() {
     completeTodo,
     deleteTodo,
     openModal,
-    setOpenModal
+    setOpenModal,
+    deleteTodos,
+    newTodo,
+    setDeleteTodos,
+    setNewTodo
 } = React.useContext(TodoContext)
   
   return (
@@ -51,14 +56,20 @@ function AppUI() {
               ))}
           </TodoList>
         <ButtonCreateTodo
-        openModal={openModal}
-        onClick={setOpenModal}
+        setOpenModal={setOpenModal}
+        onSetNewTodo={setNewTodo}
+        onSetDeleteTodos={setDeleteTodos}
         />
         <ButtonDeleteList
+        setOpenModal={setOpenModal}
+        onSetDeleteTodos={setDeleteTodos}
+        onSetNewTodo={setNewTodo}
+        
         />
         { !!openModal &&
           (<Modal>
-          <Form />
+          {!!newTodo && <NewTodoForm />}
+          {!!deleteTodos && <DeleteAll />}
         </Modal>)
         }
     </React.Fragment>

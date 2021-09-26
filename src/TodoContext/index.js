@@ -15,6 +15,8 @@ function TodoProvider(props){
 
   const [searchValue, setSearchValue] = React.useState('')
   const [openModal, setOpenModal] = React.useState(false)
+  const [newTodo, setNewTodo] = React.useState(false)
+  const [deleteTodos, setDeleteTodos] = React.useState(false)
 
   const completedTodos = todos.filter(todos => !!todos.completed).length
   const totalTodos = todos.length
@@ -63,12 +65,7 @@ function TodoProvider(props){
     const newTodos = [...todos]
     newTodos.splice(todoIndex, 1)
     saveTodos(newTodos)
-    console.log('delete once');
   }
-
-  // const deleteAll = () => {
-  //   saveTodos([])
-  // }
 
   return (
     <TodoContext.Provider value={{
@@ -84,7 +81,11 @@ function TodoProvider(props){
       deleteList,
       deleteTodo,
       openModal,
-      setOpenModal
+      setOpenModal,
+      deleteTodos,
+      newTodo,
+      setDeleteTodos,
+      setNewTodo
     }}>
       {props.children}
     </TodoContext.Provider>
