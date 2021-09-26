@@ -46,10 +46,15 @@ function useLocalStorage(itemName, initialValue) {
       }
   
     }
+
+    const deleteList = () => {
+      localStorage.setItem(itemName, [])
+    }
   
     return {
       item,
       saveItem,
+      deleteList,
       loading,
       error
     }

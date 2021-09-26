@@ -27,7 +27,6 @@ function AppUI() {
     searchedTodos,
     completeTodo,
     deleteTodo,
-    deleteList,
     openModal,
     setOpenModal
 } = React.useContext(TodoContext)
@@ -56,7 +55,6 @@ function AppUI() {
         onClick={setOpenModal}
         />
         <ButtonDeleteList
-        // onClick={}
         />
         { !!openModal &&
           (<Modal>

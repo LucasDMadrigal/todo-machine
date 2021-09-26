@@ -8,6 +8,7 @@ function TodoProvider(props){
   const {
     item: todos,
     saveItem: saveTodos,
+    deleteList,
     loading,
     error
   } = useLocalStorage('TODOS_V1', [])
@@ -21,7 +22,10 @@ function TodoProvider(props){
   let searchedTodos = []
 
   if (!(searchValue.length >= 1)) {
-    searchedTodos = todos
+    searchedTodos = [...todos]
+    searchedTodos.sort((a,b) => {
+      return a.completed - b.completed
+    })
   }
   else{
     searchedTodos = todos.filter( todo => {
@@ -54,17 +58,17 @@ function TodoProvider(props){
   }
 
   const deleteTodo = text => {
+
     const todoIndex = todos.findIndex(todo => todo.text === text)
     const newTodos = [...todos]
     newTodos.splice(todoIndex, 1)
     saveTodos(newTodos)
+    console.log('delete once');
   }
 
-  const deleteList = () => {
-    
-    const newTodos = []
-    saveTodos(newTodos)
-  }
+  // const deleteAll = () => {
+  //   saveTodos([])
+  // }
 
   return (
     <TodoContext.Provider value={{
@@ -77,8 +81,8 @@ function TodoProvider(props){
       searchedTodos,
       completeTodo,
       addTodo,
-      deleteTodo,
       deleteList,
+      deleteTodo,
       openModal,
       setOpenModal
     }}>
